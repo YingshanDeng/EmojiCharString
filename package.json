@@ -1,0 +1,44 @@
+{
+  "name": "emojicharstring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --require babel-register",
+    "dist": "gulp dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YingshanDeng/EmojiCharString.git"
+  },
+  "keywords": [
+    "unicode",
+    "emoji",
+    "string",
+    "length",
+    "substr",
+    "substring",
+    "reverse"
+  ],
+  "author": "YingshanDeng <yingshandeng@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YingshanDeng/EmojiCharString/issues"
+  },
+  "homepage": "https://github.com/YingshanDeng/EmojiCharString#readme",
+  "devDependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "mocha": "^3.4.2"
+  }
+}

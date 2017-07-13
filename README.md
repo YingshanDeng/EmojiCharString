@@ -1,1 +1,1 @@
-# EmojiChar
+# EmojiCharString
