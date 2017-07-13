@@ -6,10 +6,10 @@ class EmojiCharString {
             throw new Error('Input must be a string');
         }
         this._string = string;
-		this._match = string.match(astralRange);
+		this._match = string.match(astralRange) || [];
 	}
 	get length() {
-		return !!this._match ? this._match.length : 0;
+		return this._match.length;
 	}
 
 	/**
@@ -18,6 +18,31 @@ class EmojiCharString {
 	 */
 	reverse() {
 		return this._match.reverse().join('');
+	}
+
+	/**
+	 * The substring() method returns a subset of a string between begin index and end index
+	 * @param  {Number} begin [begin index]
+	 * @param  {Number} end   [end index]
+	 * @return {[String]}     [A new string containing the extracted section of the given string.]
+	 */
+	substring(begin = 0, end) {
+		let strLen = this.length,
+			indexStart = (parseInt(begin, 10) || 0) < 0 ? 0 : (parseInt(begin, 10) || 0),
+			indexEnd;
+		if (typeof end == 'undefined') {
+			indexEnd = strLen;
+		} else {
+			indexEnd = (parseInt(end, 10) || 0) < 0 ? 0 : (parseInt(end, 10) || 0);
+		}
+
+		if (indexStart > strLen) { indexStart = strLen; }
+		if (indexEnd > strLen) { indexEnd = strLen; }
+
+		if (indexStart > indexEnd) {
+			[indexStart, indexEnd] = [indexEnd, indexStart];
+		}
+		return this._match.slice(indexStart, indexEnd).join('')
 	}
 }
 
