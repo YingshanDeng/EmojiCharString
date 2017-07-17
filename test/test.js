@@ -44,6 +44,10 @@ describe('EmojiCharString Class substring method', () => {
 		emojiStr = new EmojiCharString(str),
 		emojiStrLen = emojiStr.length;
 
+	it('If begin is omitted, it will use default value 0.', () => {
+		assert.equal(emojiStr.substring(), str);
+	})
+
 	it('If begin equals end, return an empty string.', () => {
 		assert.equal(emojiStr.substring(0, 0), '');
 		assert.equal(emojiStr.substring(5, 5), '');
@@ -85,6 +89,10 @@ describe('EmojiCharString Class substr method', () => {
 		emojiStr = new EmojiCharString(str),
 		emojiStrLen = emojiStr.length;
 
+	it('If begin is omitted, it will use default value 0.', () => {
+		assert.equal(emojiStr.substr(), str);
+	})
+
 	it('If begin is positive and is greater than or equal to the length of the string, substr() returns an empty string.', () => {
 		assert.equal(emojiStr.substr(emojiStrLen, 4), '');
 		assert.equal(emojiStr.substr(emojiStrLen + 20, 4), '');
@@ -106,10 +114,11 @@ describe('EmojiCharString Class substr method', () => {
 		assert.equal(emojiStr.substr(emojiStrLen), '');
 	})
 
-	it('If length is 0 or negative, substr() returns an empty string.', () => {
+	it('If length is 0 or negative or not a number, substr() returns an empty string.', () => {
 		assert.equal(emojiStr.substr(0, 0), '');
 		assert.equal(emojiStr.substr(4, 0), '');
 		assert.equal(emojiStr.substr(5, -20), '');
 		assert.equal(emojiStr.substr(100, -20), '');
+		assert.equal(emojiStr.substr(0, 'hello'), '');
 	})
 });

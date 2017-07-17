@@ -64,7 +64,7 @@ class EmojiCharString {
 		if (typeof len == 'undefined') {
 			indexEnd = strLen;
 		} else {
-			indexEnd = indexStart + (parseInt(len, 10) || 1);
+			indexEnd = indexStart + (parseInt(len, 10) || 0);
 		}
 
 		return this._match.slice(indexStart, indexEnd).join('')
