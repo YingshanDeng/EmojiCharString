@@ -22,6 +22,22 @@ describe('EmojiCharString Class length property', () => {
     });
 });
 
+// reverse
+describe('EmojiCharString Class reverse method', () => {
+	it('Reverse string without emoji correctly.', () => {
+		let emojiStr = new EmojiCharString('hello world');
+		assert.equal(emojiStr.reverse(), "dlrow olleh");
+	});
+	it('Reverse string with emoji correctly.', () => {
+		let emojiStr = new EmojiCharString('👨‍👨‍👦 our family 我们一家 ❤️👏');
+		assert.equal(emojiStr.reverse(), "👏❤️ 家一们我 ylimaf ruo 👨‍👨‍👦");
+	});
+	it('Reverse empty string correctly.', () => {
+		let emojiStr = new EmojiCharString('');
+		assert.equal(emojiStr.reverse(), '');
+	});
+});
+
 // substring
 describe('EmojiCharString Class substring method', () => {
 	let str = '👨‍👨‍👦 our family 我们一家 ❤️',
@@ -63,19 +79,37 @@ describe('EmojiCharString Class substring method', () => {
 	});
 });
 
-// reverse
-describe('EmojiCharString Class reverse method', () => {
-	it('Reverse string without emoji correctly.', () => {
-		let emojiStr = new EmojiCharString('hello world');
-		assert.equal(emojiStr.reverse(), "dlrow olleh");
-	});
-	it('Reverse string with emoji correctly.', () => {
-		let emojiStr = new EmojiCharString('👨‍👨‍👦 our family 我们一家 ❤️👏');
-		assert.equal(emojiStr.reverse(), "👏❤️ 家一们我 ylimaf ruo 👨‍👨‍👦");
-	});
-	it('Reverse empty string correctly.', () => {
-		let emojiStr = new EmojiCharString('');
-		assert.equal(emojiStr.reverse(), '');
-	});
-});
+// substr
+describe('EmojiCharString Class substr method', () => {
+	let str = '👨‍👨‍👦 our family 我们一家 ❤️',
+		emojiStr = new EmojiCharString(str),
+		emojiStrLen = emojiStr.length;
 
+	it('If begin is positive and is greater than or equal to the length of the string, substr() returns an empty string.', () => {
+		assert.equal(emojiStr.substr(emojiStrLen, 4), '');
+		assert.equal(emojiStr.substr(emojiStrLen + 20, 4), '');
+	})
+
+	it('If begin is negative, substr() uses it as a character index from the end of the string.', () => {
+		assert.equal(emojiStr.substr(-4, 4), '一家 ❤️');
+		assert.equal(emojiStr.substr(-emojiStrLen, 4), '👨‍👨‍👦 ou');
+	})
+
+	it('If begin is negative and abs(start) is larger than the length of the string, substr() uses 0 as the start index.', () => {
+		assert.equal(emojiStr.substr(-200, 4), '👨‍👨‍👦 ou');
+		assert.equal(emojiStr.substr(-300, 6), '👨‍👨‍👦 our ');
+	})
+
+	it('If length is omitted, substr() extracts characters to the end of the string.', () => {
+		assert.equal(emojiStr.substr(0), str);
+		assert.equal(emojiStr.substr(2), 'our family 我们一家 ❤️');
+		assert.equal(emojiStr.substr(emojiStrLen), '');
+	})
+
+	it('If length is 0 or negative, substr() returns an empty string.', () => {
+		assert.equal(emojiStr.substr(0, 0), '');
+		assert.equal(emojiStr.substr(4, 0), '');
+		assert.equal(emojiStr.substr(5, -20), '');
+		assert.equal(emojiStr.substr(100, -20), '');
+	})
+});

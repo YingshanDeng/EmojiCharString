@@ -44,6 +44,31 @@ class EmojiCharString {
 		}
 		return this._match.slice(indexStart, indexEnd).join('')
 	}
+
+	/**
+	 * The substr() method return the characters in a string beginning at the specified location through the specified number of characters.
+	 * @param  {Number} begin [Location at which to begin extracting characters]
+	 * @param  {Number} len   [The number of characters to extract]
+	 * @return {[String]}     [A new string containing the extracted section of the given string]
+	 */
+	substr(begin = 0, len) {
+		let strLen = this.length,
+			indexStart = parseInt(begin, 10) || 0,
+			indexEnd;
+		if (indexStart >= strLen || len <= 0) {
+			return '';
+		} else if (indexStart < 0) {
+			indexStart = Math.max(0, indexStart + strLen);
+		}
+
+		if (typeof len == 'undefined') {
+			indexEnd = strLen;
+		} else {
+			indexEnd = indexStart + (parseInt(len, 10) || 1);
+		}
+
+		return this._match.slice(indexStart, indexEnd).join('')
+	}
 }
 
 export default EmojiCharString;
