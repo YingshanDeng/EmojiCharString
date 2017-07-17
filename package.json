@@ -7,9 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha --require babel-register",
+    "test": "standard && nyc --reporter=html --reporter=text mocha --require babel-register",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dist": "gulp dist"
+  },
+  "standard": {
+    "env": [ "mocha" ]
   },
   "repository": {
     "type": "git",
