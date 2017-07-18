@@ -7,12 +7,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "standard && nyc --reporter=html --reporter=text mocha --require babel-register",
+    "test": "standard --verbose | snazzy && nyc --reporter=html --reporter=text mocha --require babel-register",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dist": "gulp dist"
   },
   "standard": {
-    "env": [ "mocha" ]
+    "env": [
+      "mocha"
+    ]
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
     "gulp-uglify": "^3.0.0",
     "mocha": "^3.4.2",
     "nyc": "^11.0.3",
+    "snazzy": "^7.0.0",
     "standard": "^10.0.2"
   }
 }
