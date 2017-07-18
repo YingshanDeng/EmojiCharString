@@ -1,5 +1,6 @@
 # EmojiCharString
 
+[![npm version](https://badge.fury.io/js/emojicharstring.svg)](https://badge.fury.io/js/emojicharstring)
 [![Build Status](https://travis-ci.org/YingshanDeng/EmojiCharString.svg?branch=master)](https://travis-ci.org/YingshanDeng/EmojiCharString)
 [![Coverage Status](https://coveralls.io/repos/github/YingshanDeng/EmojiCharString/badge.svg?branch=master)](https://coveralls.io/github/YingshanDeng/EmojiCharString?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
