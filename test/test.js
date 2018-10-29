@@ -11,6 +11,15 @@ describe('EmojiCharString Class constructor', () => {
   })
 })
 
+// get
+describe('Test EmojiCharString convert to a string', () => {
+  it('get EmojiCharString convert to a string should return a string ', () => {
+    assert.equal(new EmojiCharString('1️⃣'), '1️⃣')
+    assert.equal(new EmojiCharString('1'), '1')
+    assert.equal(new EmojiCharString('你好'), '你好')
+  })
+})
+
 // length
 describe('EmojiCharString Class length property', () => {
   it('Get empty string length correctly!', () => {
