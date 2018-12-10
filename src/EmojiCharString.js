@@ -12,6 +12,10 @@ class EmojiCharString {
     return this._match.length
   }
 
+  toString () {
+    return this._string
+  }
+
   /**
    * Reverse the string in place
    * @return {[String]} [The reversed string]
