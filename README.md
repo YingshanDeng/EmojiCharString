@@ -47,6 +47,13 @@ var emojiStr = new EmojiCharString('👦🏿')
 var len = emojiStr.length // 1
 ```
 
+### `toString`
+Get the string you pass in.
+```javascript
+var emojiStr = new EmojiCharString('hello')
+var str = emojiStr.toString() // hello
+```
+
 ### `reverse ()`
 Reverse the string in place.
 ```javascript
